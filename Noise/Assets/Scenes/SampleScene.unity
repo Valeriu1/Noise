@@ -2278,6 +2278,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1743487431}
     m_Modifications:
+    - target: {fileID: 249227799449781655, guid: b59b376bb2679fd4a818d8876923bc63,
+        type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 1743487434}
     - target: {fileID: 6436572459019785777, guid: b59b376bb2679fd4a818d8876923bc63,
         type: 3}
       propertyPath: m_RootOrder
@@ -25972,27 +25977,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86fc56ea64ef7274eb52674dd1492709, type: 3}
---- !u!1 &1849203789 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8000668190180451362, guid: b59b376bb2679fd4a818d8876923bc63,
-    type: 3}
-  m_PrefabInstance: {fileID: 509206370}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1849203790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1849203789}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22612683725d54341b3baed59cd5fc33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 10
-  range: 100
-  mainCamera: {fileID: 1743487434}
 --- !u!1001 &2015917629
 PrefabInstance:
   m_ObjectHideFlags: 0
