@@ -38,7 +38,7 @@ public class GunShoot : MonoBehaviour
             Target target = hit.transform.GetComponent<Target>();
             if (target != null)
             {
-                if (hit.transform.CompareTag("head"))
+                if (hit.collider.CompareTag("head")) // for extra damage
                 {
                     target.TakeDamage(headDamage);
                 }
