@@ -31,12 +31,13 @@ public class GunShoot : MonoBehaviour
             nextTimeToFire = Time.time + 1f / fireRate;
             Shoot();
         }
+
     }
 
     void Shoot()
     {
         if (!muzzleFlash.isPlaying) muzzleFlash.Play();
-        gunFireSound.Play();
+        gunFireSound.PlayOneShot(gunFireSound.clip);
         RaycastHit hit;
         if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hit, range))
         {
