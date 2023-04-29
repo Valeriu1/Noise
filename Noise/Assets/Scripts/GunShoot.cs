@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class GunShoot : MonoBehaviour
@@ -37,7 +38,7 @@ public class GunShoot : MonoBehaviour
             Target target = hit.transform.GetComponent<Target>();
             if (target != null)
             {
-                if (target.CompareTag("head"))
+                if (hit.transform.CompareTag("head"))
                 {
                     target.TakeDamage(headDamage);
                 }
@@ -50,8 +51,13 @@ public class GunShoot : MonoBehaviour
             {
                 hit.rigidbody.AddForce(-hit.normal * impactForce);
             }
-            GameObject tmpBulletHole = Instantiate(bulletHole, hit.point, Quaternion.LookRotation(hit.normal));
-            Destroy(tmpBulletHole, 3f);
+            MakeBulletHoles(hit);
         }
+    }
+
+    void MakeBulletHoles(RaycastHit hit )
+    {
+        GameObject tmpBulletHole = Instantiate(bulletHole, hit.point, Quaternion.LookRotation(hit.normal));
+        Destroy(tmpBulletHole, 3f);
     }
 }
