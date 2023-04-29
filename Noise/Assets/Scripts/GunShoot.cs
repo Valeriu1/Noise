@@ -12,10 +12,16 @@ public class GunShoot : MonoBehaviour
     public float impactForce = 30f;
 
     private float nextTimeToFire = 0f;
+    private AudioSource gunFireSound;
 
     public Camera mainCamera;
       public ParticleSystem muzzleFlash;
     public GameObject bulletHole;
+
+    private void Start()
+    {
+        gunFireSound = GetComponent<AudioSource>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -29,7 +35,8 @@ public class GunShoot : MonoBehaviour
 
     void Shoot()
     {
-        if (!muzzleFlash.isPlaying) muzzleFlash.Play(); 
+        if (!muzzleFlash.isPlaying) muzzleFlash.Play();
+        gunFireSound.Play();
         RaycastHit hit;
         if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hit, range))
         {
