@@ -5,6 +5,7 @@ using UnityEngine;
 public class GunShoot : MonoBehaviour
 {
       public float damage = 10f;
+      public float headDamage = 30f;
       public float range = 100f;
     public float fireRate = 15f;
     public float impactForce = 30f;
@@ -36,7 +37,14 @@ public class GunShoot : MonoBehaviour
             Target target = hit.transform.GetComponent<Target>();
             if (target != null)
             {
-                target.TakeDamage(damage);
+                if (target.CompareTag("head"))
+                {
+                    target.TakeDamage(headDamage);
+                }
+                else
+                {
+                    target.TakeDamage(damage);
+                }
             }
             if (hit.rigidbody != null)
             {
