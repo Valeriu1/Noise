@@ -17,6 +17,7 @@ public class GunShoot : MonoBehaviour
     public Camera mainCamera;
       public ParticleSystem muzzleFlash;
     public GameObject bulletHole;
+    public GameObject impactEffect;
 
     private void Start()
     {
@@ -54,12 +55,16 @@ public class GunShoot : MonoBehaviour
                 {
                     target.TakeDamage(damage);
                 }
+                MakeImpactEffect(hit);
+            }
+            else
+            {
+                MakeBulletHoles(hit);
             }
             if (hit.rigidbody != null)
             {
                 hit.rigidbody.AddForce(-hit.normal * impactForce);
             }
-            MakeBulletHoles(hit);
         }
     }
 
@@ -67,5 +72,10 @@ public class GunShoot : MonoBehaviour
     {
         GameObject tmpBulletHole = Instantiate(bulletHole, hit.point, Quaternion.LookRotation(hit.normal));
         Destroy(tmpBulletHole, 3f);
+    } 
+    void MakeImpactEffect(RaycastHit hit )
+    {
+        GameObject impact = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+        Destroy(impact, 1f);
     }
 }
