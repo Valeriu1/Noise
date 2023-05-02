@@ -963,7 +963,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!4 &229002199 stripped
 Transform:
@@ -12111,12 +12111,12 @@ PrefabInstance:
     - target: {fileID: 7200255042465617942, guid: 98baa3a4ad228d14985350c9fddd7759,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.157664
+      value: -27
       objectReference: {fileID: 0}
     - target: {fileID: 7200255042465617942, guid: 98baa3a4ad228d14985350c9fddd7759,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.58
+      value: 2.14
       objectReference: {fileID: 0}
     - target: {fileID: 7200255042465617942, guid: 98baa3a4ad228d14985350c9fddd7759,
         type: 3}
