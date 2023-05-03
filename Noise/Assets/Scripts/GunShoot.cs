@@ -29,7 +29,7 @@ public class GunShoot : MonoBehaviour
     {
         if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
         {
-            nextTimeToFire = Time.time + 1f / fireRate;
+            nextTimeToFire = Time.time + 1.25f / fireRate;
             Shoot();
         }
 
@@ -43,6 +43,7 @@ public class GunShoot : MonoBehaviour
         if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out hit, range))
         {
             Debug.Log(hit.transform.name);
+            if (hit.transform.CompareTag("Player")) return;
 
             Target target = hit.transform.GetComponent<Target>();
             if (target != null)
