@@ -29,7 +29,7 @@ public class GunShoot : MonoBehaviour
     {
         if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
         {
-            nextTimeToFire = Time.time + 1.25f / fireRate;
+            nextTimeToFire = Time.time + 1f / fireRate;
             Shoot();
         }
 
