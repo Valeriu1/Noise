@@ -45,8 +45,7 @@ public class GunShoot : MonoBehaviour
             Debug.Log(hit.transform.name);
             if (hit.transform.CompareTag("Player")) return;
 
-            Target target = hit.transform.GetComponent<Target>();
-            if (target != null)
+            if (hit.transform.TryGetComponent<Target>(out var target))
             {
                 if (hit.collider.CompareTag("head")) // for extra damage
                 {
@@ -56,11 +55,11 @@ public class GunShoot : MonoBehaviour
                 {
                     target.TakeDamage(damage);
                 }
-                MakeImpactEffect(hit);
+                MakeBulletHoles(hit, impactEffect, 1f);
             }
             else
             {
-                MakeBulletHoles(hit);
+                MakeBulletHoles(hit, bulletHole, 3f);
             }
             if (hit.rigidbody != null)
             {
@@ -69,14 +68,10 @@ public class GunShoot : MonoBehaviour
         }
     }
 
-    void MakeBulletHoles(RaycastHit hit )
+    void MakeBulletHoles(RaycastHit hit, GameObject gameObject, float time )
     {
-        GameObject tmpBulletHole = Instantiate(bulletHole, hit.point, Quaternion.LookRotation(hit.normal));
-        Destroy(tmpBulletHole, 3f);
+        GameObject tmpBulletHole = Instantiate(gameObject, hit.point, Quaternion.LookRotation(hit.normal));
+        Destroy(tmpBulletHole, time);
     } 
-    void MakeImpactEffect(RaycastHit hit )
-    {
-        GameObject impact = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-        Destroy(impact, 1f);
-    }
+
 }
