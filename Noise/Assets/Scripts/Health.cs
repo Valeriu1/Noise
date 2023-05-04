@@ -7,12 +7,14 @@ public class Health : MonoBehaviour
     public float maxHealth = 100f;
     [HideInInspector]
     public float currentHealth;
+    Ragdoll ragdoll;
 
 
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
+        ragdoll = GetComponent<Ragdoll>();
     }
 
     public void TakeDamage(float amount)
@@ -20,12 +22,12 @@ public class Health : MonoBehaviour
         currentHealth -= amount;
         if (currentHealth <= 0f)
         {
-            Deactivate();
+            MakeItDead();
         }
     }
 
-    private void Deactivate()
+    private void MakeItDead()
     {
-        gameObject.GetComponent<Animator>().enabled = false;
+        ragdoll.Activate(); //bassically a ragdoll mode
     }
 }
