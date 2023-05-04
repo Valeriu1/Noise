@@ -56,13 +56,25 @@ public class GunShoot : MonoBehaviour
                 }
                 MakeBulletHoles(hit, impactEffect, 1f);
             }
+            else if(hit.transform.TryGetComponent<HitBox>(out var hitBox))
+            {
+                if (hit.collider.CompareTag("head")) // for extra damage
+                {
+                    hitBox.OnBulletHit(headDamage);
+                }
+                else
+                {
+                    hitBox.OnBulletHit(damage);
+                }
+                MakeBulletHoles(hit, impactEffect, 1f);
+            }
             else
             {
                 MakeBulletHoles(hit, bulletHole, 3f);
             }
             if (hit.rigidbody != null)
             {
-                hit.rigidbody.AddForce(-hit.normal * impactForce);
+                hit.rigidbody.AddForceAtPosition(-hit.normal * impactForce, hit.point, ForceMode.Impulse);
             }
         }
     }
