@@ -16,8 +16,8 @@ public class GunShoot : MonoBehaviour
 
     public Camera mainCamera;
       public ParticleSystem muzzleFlash;
-    public GameObject bulletHole;
-    public GameObject impactEffect;
+
+    HitEffect hitEffect;
 
     private void Start()
     {
@@ -54,7 +54,7 @@ public class GunShoot : MonoBehaviour
                 {
                     target.TakeDamage(damage);
                 }
-                MakeBulletHoles(hit, impactEffect, 1f);
+                hitEffect.ShowHitEffect(hit, HitEffect.Effects.Impact, 1f);
             }
             else if(hit.transform.TryGetComponent<HitBox>(out var hitBox))
             {
@@ -66,11 +66,11 @@ public class GunShoot : MonoBehaviour
                 {
                     hitBox.OnBulletHit(damage);
                 }
-                MakeBulletHoles(hit, impactEffect, 1f);
+                hitEffect.ShowHitEffect(hit, HitEffect.Effects.Blood, 1f);
             }
             else
             {
-                MakeBulletHoles(hit, bulletHole, 3f);
+                hitEffect.ShowHitEffect(hit, HitEffect.Effects.Hole, 4f);
             }
             if (hit.rigidbody != null)
             {
@@ -79,10 +79,6 @@ public class GunShoot : MonoBehaviour
         }
     }
 
-    void MakeBulletHoles(RaycastHit hit, GameObject gameObject, float time )
-    {
-        GameObject tmpBulletHole = Instantiate(gameObject, hit.point, Quaternion.LookRotation(hit.normal));
-        Destroy(tmpBulletHole, time);
-    } 
+    
 
 }
