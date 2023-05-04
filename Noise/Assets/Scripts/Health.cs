@@ -28,6 +28,9 @@ public class Health : MonoBehaviour
 
     private void MakeItDead()
     {
-        ragdoll.Activate(); //bassically a ragdoll mode
+        if (ragdoll != null && ragdoll.isActiveAndEnabled)
+        {
+            ragdoll.Activate(); //bassically a ragdoll mode
+        }
     }
 }
