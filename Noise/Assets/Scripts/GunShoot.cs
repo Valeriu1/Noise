@@ -17,7 +17,7 @@ public class GunShoot : MonoBehaviour
     public Camera mainCamera;
       public ParticleSystem muzzleFlash;
 
-    HitEffect hitEffect;
+    public HitEffect hitEffect;
 
     private void Start()
     {
