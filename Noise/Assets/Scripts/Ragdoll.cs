@@ -5,6 +5,7 @@ using UnityEngine;
 public class Ragdoll : MonoBehaviour
 {
     Rigidbody[] rigidbodies;
+    ZombieAttackYouDead[] zombieAttackYouDeads;
     Animator animator;
     Follow followScript;
 
@@ -12,6 +13,7 @@ public class Ragdoll : MonoBehaviour
     void Start()
     {
         rigidbodies = GetComponentsInChildren<Rigidbody>();
+        zombieAttackYouDeads = GetComponentsInChildren<ZombieAttackYouDead>();
         animator = GetComponent<Animator>();
         followScript = GetComponent<Follow>();
         Deactivate();
@@ -25,6 +27,10 @@ public class Ragdoll : MonoBehaviour
         }
         animator.enabled = true;
         followScript.enabled = true;
+        foreach(var zombie in zombieAttackYouDeads)
+        {
+            zombie.allowCollision = true;
+        }
     }
 
     public void Activate()
@@ -35,5 +41,9 @@ public class Ragdoll : MonoBehaviour
         }
         animator.enabled = false;
         followScript.enabled = false;
+        foreach (var zombie in zombieAttackYouDeads) //disable zomdamage when dead
+        {
+            zombie.allowCollision = false;
+        }
     }
 }
