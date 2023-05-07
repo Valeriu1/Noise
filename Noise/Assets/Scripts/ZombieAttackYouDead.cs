@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ZombieAttackYouDead : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Collision");
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("You died");
         }
