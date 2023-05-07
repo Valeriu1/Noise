@@ -9,6 +9,7 @@ public class YouDied : MonoBehaviour
     public GameObject youDiedCanvas;
     public MouseLook mouseLook;
     public PlayerMovement playerMovement;
+    public GunShoot gunShoot;
 
 
     public void Dead()
@@ -17,6 +18,7 @@ public class YouDied : MonoBehaviour
         youDiedCanvas.SetActive(true);
         playerMovement.enabled = false;
         mouseLook.enabled = false; 
+        gunShoot.enabled = false;
         Cursor.lockState = CursorLockMode.None;
     }
 
