@@ -6,12 +6,14 @@ public class Ragdoll : MonoBehaviour
 {
     Rigidbody[] rigidbodies;
     Animator animator;
+    Follow followScript;
 
     // Start is called before the first frame update
     void Start()
     {
         rigidbodies = GetComponentsInChildren<Rigidbody>();
-        animator = GetComponent<Animator>();   
+        animator = GetComponent<Animator>();
+        followScript = GetComponent<Follow>();
         Deactivate();
     }
 
@@ -22,6 +24,7 @@ public class Ragdoll : MonoBehaviour
             rigidbody.isKinematic = true;
         }
         animator.enabled = true;
+        followScript.enabled = true;
     }
 
     public void Activate()
@@ -31,5 +34,6 @@ public class Ragdoll : MonoBehaviour
             rigidbody.isKinematic = false;
         }
         animator.enabled = false;
+        followScript.enabled = false;
     }
 }
