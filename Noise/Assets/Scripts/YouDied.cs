@@ -12,7 +12,7 @@ public class YouDied : MonoBehaviour
     public GunShoot gunShoot;
 
 
-    public void Dead()
+    public void Dead() //deactivating everything when dead, enable dead canvas
     {
         canvas.SetActive(false);
         youDiedCanvas.SetActive(true);
