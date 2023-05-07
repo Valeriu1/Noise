@@ -9,11 +9,15 @@ public class SaveOptions : MonoBehaviour
 {
      float musicVolume;
      bool playMusic;
+    int danceType;
+
     public Slider musicSlider;
+    public Slider danceSlider;
     public Toggle playMusicToggle;
 
     public AudioMixer audioMixer;
     public AudioSource audioSource;
+    public Animator animator;
     private void Start()
     {
         LoadSettings();
@@ -29,6 +33,11 @@ public class SaveOptions : MonoBehaviour
         {
             playMusic = PlayerPrefs.GetInt("PlayMusic") == 1;
             playMusicToggle.isOn = playMusic;
+        }
+        if (PlayerPrefs.HasKey("Dance"))
+        {
+            danceType = PlayerPrefs.GetInt("Dance");
+            danceSlider.value = danceType;
         }
     }
 
@@ -47,10 +56,17 @@ public class SaveOptions : MonoBehaviour
 
     }
 
+    public void OnDanceChanged()
+    {
+        danceType = (int)danceSlider.value;
+        PlayerPrefs.SetInt("Dance", danceType);
+    }
+
     public void SaveSettings()
     {
         PlayerPrefs.SetFloat("Voluyme", musicVolume);
         PlayerPrefs.SetInt("PlayMusic", playMusic ? 1 : 0);
+        PlayerPrefs.SetInt("Dance", danceType);
         PlayerPrefs.Save(); 
     }
 }

@@ -9,11 +9,16 @@ public class SkellyDance : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        PlayAnimation();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PlayAnimation()
     {
-        animator.Play("macarena");
+        if (PlayerPrefs.HasKey("Dance"))
+        {
+            int danceType = PlayerPrefs.GetInt("Dance");
+            animator.Play(danceType == 1 ? "macarena" : "snake");
+        }
+
     }
 }
