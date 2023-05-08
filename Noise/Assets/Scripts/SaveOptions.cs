@@ -17,7 +17,6 @@ public class SaveOptions : MonoBehaviour
 
     public AudioMixer audioMixer;
     public AudioSource audioSource;
-    public Animator animator;
     private void Start()
     {
         LoadSettings();
