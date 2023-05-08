@@ -7,16 +7,29 @@ public class Score : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highScoreText;
+    private int score = 0;
+    private int highScore;
     // Start is called before the first frame update
     void Start()
     {
-        scoreText.SetText("2");
-        highScoreText.SetText("3");
+        if (PlayerPrefs.HasKey("HighScore"))
+        {
+            highScore = PlayerPrefs.GetInt("HighScore");
+            highScoreText.SetText(highScore.ToString());
+        }
+        
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void ZombieKilled()
     {
-        
+        score++;
+        scoreText.SetText(score.ToString());
+        if (score >= highScore)
+        {
+            highScore = score;
+            highScoreText.SetText(highScore.ToString());
+            PlayerPrefs.SetInt("HighScore", highScore);
+        }
     }
 }

@@ -6,10 +6,10 @@ using UnityEngine;
 public class GunShoot : MonoBehaviour
 {
       public float damage = 10f;
-      public float headDamage = 30f;
+      public float headDamage = 35f;
       public float range = 100f;
-    public float fireRate = 15f;
-    public float impactForce = 30f;
+    public float fireRate = 13f;
+    public float impactForce = 6f;
 
     private float nextTimeToFire = 0f;
     private AudioSource gunFireSound;

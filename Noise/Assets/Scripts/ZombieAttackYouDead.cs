@@ -14,7 +14,6 @@ public class ZombieAttackYouDead : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if(allowCollision){
-            Debug.Log("Collision");
             if (other.gameObject.CompareTag("Player"))
             {
                 youDied.Dead();

@@ -8,9 +8,9 @@ using UnityEngine.AI;
 public class ZombieSpawner : MonoBehaviour
 {
     public float startWait = 10f;
-    public float spawnWait = 5f;
-    public float minDistance = 30f;
-    public float maxDistance = 50f;
+    public float spawnWait = 7f;
+    public float minDistance = 40f;
+    public float maxDistance = 60f;
     public GameObject zombie;
     public GameObject player;
     public YouDied youDied;
@@ -46,6 +46,11 @@ public class ZombieSpawner : MonoBehaviour
                 Instantiate(zombie, myRandomPositionInsideNavMesh, spawnRotation);
             
             yield return new WaitForSeconds(spawnWait);
+            if (spawnWait >= 3)
+            {
+                spawnWait -= 0.05f; //decrese time between spawns, make it harder in the long run
+                Debug.Log(spawnWait.ToString());
+            }
 
             if (!youDied.isPlayerAlive)
             {
