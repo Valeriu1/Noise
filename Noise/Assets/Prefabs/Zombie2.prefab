@@ -714,7 +714,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.4
-  m_Speed: 3.5
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 100
@@ -752,7 +752,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: d2d45dd7b1cdb1f4b8cca8dc5d48def2, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -780,13 +780,13 @@ AudioSource:
       inWeight: 0.33333334
       outWeight: 0.07998021
     - serializedVersion: 3
-      time: 0.544281
+      time: 0.7448425
       value: 0
-      inSlope: 0.17122784
-      outSlope: 0.17122784
+      inSlope: -0.31448627
+      outSlope: -0.31448627
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.18936975
+      inWeight: 0.19053854
       outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
