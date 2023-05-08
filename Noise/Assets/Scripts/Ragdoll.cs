@@ -8,12 +8,14 @@ public class Ragdoll : MonoBehaviour
     ZombieAttackYouDead[] zombieAttackYouDeads;
     Animator animator;
     Follow followScript;
+    AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
         rigidbodies = GetComponentsInChildren<Rigidbody>();
         zombieAttackYouDeads = GetComponentsInChildren<ZombieAttackYouDead>();
+        audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         followScript = GetComponent<Follow>();
         Deactivate();
@@ -27,7 +29,8 @@ public class Ragdoll : MonoBehaviour
         }
         animator.enabled = true;
         followScript.enabled = true;
-        foreach(var zombie in zombieAttackYouDeads)
+        audioSource.enabled = true;
+        foreach (var zombie in zombieAttackYouDeads)
         {
             zombie.allowCollision = true;
         }
@@ -41,6 +44,7 @@ public class Ragdoll : MonoBehaviour
         }
         animator.enabled = false;
         followScript.enabled = false;
+        audioSource.enabled = false;
         foreach (var zombie in zombieAttackYouDeads) //disable zomdamage when dead
         {
             zombie.allowCollision = false;
