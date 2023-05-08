@@ -7,6 +7,7 @@ TagManager:
   - target
   - head
   - Zombie
+  - GameManager
   layers:
   - Default
   - TransparentFX

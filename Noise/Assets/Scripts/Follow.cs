@@ -9,6 +9,7 @@ public class Follow : MonoBehaviour
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
     
     private void Update()
