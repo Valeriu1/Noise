@@ -29,11 +29,6 @@ public class ZombieSpawner : MonoBehaviour
         while (true)
         {
 
-            //float minDistance = 30f;
-            //float maxDistance = 35.0f;
-            //float distance = Random.Range(minDistance, maxDistance);
-            //float angle = Random.Range(-Mathf.PI, Mathf.PI);
-
             Vector3 spawnValues = player.transform.position;
             Vector3 spawnPosition = new(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, Random.Range(-spawnValues.z, spawnValues.z));
             while (Vector3.Distance(spawnPosition, player.transform.position) > maxDistance || minDistance < Vector3.Distance(spawnPosition, player.transform.position))
