@@ -10,6 +10,7 @@ public class YouDied : MonoBehaviour
     public MouseLook mouseLook;
     public PlayerMovement playerMovement;
     public GunShoot gunShoot;
+    public bool isPlayerAlive = true;
 
 
     public void Dead() //deactivating everything when dead, enable dead canvas
@@ -19,6 +20,7 @@ public class YouDied : MonoBehaviour
         playerMovement.enabled = false;
         mouseLook.enabled = false; 
         gunShoot.enabled = false;
+        isPlayerAlive = false;
         Cursor.lockState = CursorLockMode.None;
     }
 
