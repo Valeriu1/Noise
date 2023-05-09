@@ -17,11 +17,11 @@ https://www.dafont.com/metal-sketchvetica.font?text=Play - the main font <br>
 https://learn.unity.com/u/63ee1822edbc2a517d622398/?tab=activity - the tutorials helped a lot <br>
 https://www.youtube.com/@Brackeys - this channel too.
 
-The sounds and music:
-https://www.youtube.com/watch?v=xtSbqLw8zDk - gun sounds.
-https://www.youtube.com/watch?v=KIjoqpG4B9w - main theme.
+The sounds and music: <br>
+https://www.youtube.com/watch?v=xtSbqLw8zDk - gun sounds. <br>
+https://www.youtube.com/watch?v=KIjoqpG4B9w - main theme. <br>
 
-All assets were configured in some way to suit my taste. 
+All assets were configured in some way to suit my taste. <br>
 
 P.S. tried to make a WebGL version, failed miserably to upload to GitHub pages. <br>
 Unity Play Platform(limit 200 MB), and even itch.io with 1GB limit still failed me. :expressionless: <br>
