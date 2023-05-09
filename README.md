@@ -17,6 +17,10 @@ https://www.dafont.com/metal-sketchvetica.font?text=Play - the main font <br>
 https://learn.unity.com/u/63ee1822edbc2a517d622398/?tab=activity - the tutorials helped a lot <br>
 https://www.youtube.com/@Brackeys - this channel too.
 
+The sounds and music:
+https://www.youtube.com/watch?v=xtSbqLw8zDk - gun sounds.
+https://www.youtube.com/watch?v=KIjoqpG4B9w - main theme.
+
 All assets were configured in some way to suit my taste. 
 
 P.S. tried to make a WebGL version, failed miserably to upload to GitHub pages. <br>
